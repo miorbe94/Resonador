@@ -14,11 +14,7 @@ import org.jfree.data.xy.XYSeries;
 import org.jfree.data.xy.XYSeriesCollection;
 
 public class Procesos {
-    
-    private JTable tblresonatorModes;
-    private JPanel grafica;
-    private JLabel lblFinesse;
-    
+        
     private double initIntensity;
     private double distance;
     private double mirror1;
@@ -46,17 +42,13 @@ public class Procesos {
     //{frequency, intensity, transmitance}
     private double[][] intensityTransmitanceFrequencyTable = new double[100][3]; 
 
-    public Procesos(double intensity, double distance, double mirror1, double mirror2, double refractive, double coefficient, JTable tblresonatorModes, JPanel grafica, JLabel lblFinesse) {
+    public Procesos(double intensity, double distance, double mirror1, double mirror2, double refractive, double coefficient) {
         this.initIntensity = intensity;
         this.distance = distance;
         this.mirror1 = mirror1;
         this.mirror2 = mirror2;
         this.refractive = refractive;
         this.coefficient = coefficient;
-        
-        this.tblresonatorModes = tblresonatorModes;
-        this.grafica = grafica;
-        this.lblFinesse = lblFinesse;
         
         resonador();
     }
@@ -106,24 +98,21 @@ public class Procesos {
             intensityTransmitanceFrequencyTable[i][0] = intensityTransmitanceFrequencyTable[i -1][0] + intensityTransmitanceFrequencyTable[0][0]; //frequency
             intensityTransmitanceFrequencyTable[i][1] = iMax / (1 + Math.pow(2 * finesse / Math.PI, 2) * Math.pow(Math.sin(Math.PI * intensityTransmitanceFrequencyTable[i][0] / fSpacing), 2)); //Intensity
             intensityTransmitanceFrequencyTable[i][2] = maxTransmittance / (1 + Math.pow(2 * transmitanceFinesse / Math.PI, 2) * Math.pow(Math.sin(Math.PI * intensityTransmitanceFrequencyTable[i][0] / fSpacing), 2));;//Transmitance
-        }
-        lblFinesse.setText(finesse+"");
-        crearTabla(resonatorModes);
-        graficar(intensityTransmitanceFrequencyTable);
+        }        
         
     }
     
-    private void crearTabla(String[][] datos){        
-        javax.swing.table.DefaultTableModel model = new DefaultTableModel(datos, new String[]{"Mode Number", "Resonance Frecuency", "Q Factor"});
-        tblresonatorModes.setModel(model);
+    public void crearTabla(JTable tabla){        
+        javax.swing.table.DefaultTableModel model = new DefaultTableModel(resonatorModes, new String[]{"Mode Number", "Resonance Frecuency", "Q Factor"});
+        tabla.setModel(model);
     }
     
-    private void graficar(double[][] datos){
+    public void graficar(JPanel grafica){
         grafica.removeAll();
         XYSeriesCollection data = new XYSeriesCollection();
         XYSeries series = new XYSeries("Internal Intensity");
-        for (int i = 0; i < datos.length; i++) {
-            series.add(datos[i][0], datos[i][1]);
+        for (int i = 0; i < intensityTransmitanceFrequencyTable.length; i++) {
+            series.add(intensityTransmitanceFrequencyTable[i][0], intensityTransmitanceFrequencyTable[i][1]);
         }
         data.addSeries(series);
         JFreeChart chart = ChartFactory.createXYLineChart("Resonance", "Frecuency", "Intensity", data , PlotOrientation.VERTICAL, true, true, false);
@@ -131,4 +120,10 @@ public class Procesos {
         grafica.setLayout(new java.awt.BorderLayout());
         grafica.add(cp);
     } 
+
+    public String getFinesse() {
+        return finesse+"";
+    }
+    
+    
 }

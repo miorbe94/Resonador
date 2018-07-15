@@ -230,7 +230,10 @@ public class Main extends javax.swing.JFrame {
         }
         //usar objeto 0bj
         if(pasa)
-        obj = new Procesos(Double.parseDouble(txtIntensity.getText()), Double.parseDouble(txtDistance.getText()), Double.parseDouble(txtMirror1.getText()), Double.parseDouble(txtMirror2.getText()), Double.parseDouble(txtRefractive.getText()), Double.parseDouble(txtAbsortion.getText()), tblResonatorModes, grafica, lblFinesse);
+        obj = new Procesos(Double.parseDouble(txtIntensity.getText()), Double.parseDouble(txtDistance.getText()), Double.parseDouble(txtMirror1.getText()), Double.parseDouble(txtMirror2.getText()), Double.parseDouble(txtRefractive.getText()), Double.parseDouble(txtAbsortion.getText()));
+        obj.crearTabla(tblResonatorModes);
+        obj.graficar(grafica);
+        lblFinesse.setText(obj.getFinesse());
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void txtAbsortionKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtAbsortionKeyPressed
