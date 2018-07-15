@@ -221,21 +221,51 @@ public class Main extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        //validar
-        boolean pasa = true;
-        //PENDIENTE***************************
-        if(Double.parseDouble(txtMirror1.getText()) == 1 && Double.parseDouble(txtMirror2.getText()) == 1){
-            JOptionPane.showConfirmDialog(this, "La estas regando deseas aceptar la correccion?"); 
-            pasa = false;
+       
+        if(validar()){
+            obj = new Procesos(Double.parseDouble(txtIntensity.getText()), Double.parseDouble(txtDistance.getText()), Double.parseDouble(txtMirror1.getText()), Double.parseDouble(txtMirror2.getText()), Double.parseDouble(txtRefractive.getText()), Double.parseDouble(txtAbsortion.getText()));
+            obj.crearTabla(tblResonatorModes);
+            obj.graficar(grafica);
+            lblFinesse.setText(obj.getFinesse());
         }
-        //usar objeto 0bj
-        if(pasa)
-        obj = new Procesos(Double.parseDouble(txtIntensity.getText()), Double.parseDouble(txtDistance.getText()), Double.parseDouble(txtMirror1.getText()), Double.parseDouble(txtMirror2.getText()), Double.parseDouble(txtRefractive.getText()), Double.parseDouble(txtAbsortion.getText()));
-        obj.crearTabla(tblResonatorModes);
-        obj.graficar(grafica);
-        lblFinesse.setText(obj.getFinesse());
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private boolean validar(){
+        quitarEspacios();
+        if(sonNumerosValidos() != 0){
+            JOptionPane.showMessageDialog(this, "text box number 1 has data not accepted", "Error", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }else{
+            return true;
+        }
+    }
+    
+    private int sonNumerosValidos(){
+        if(!Validaciones.isDouble(txtAbsortion.getText()))
+            return 6;
+        if(!Validaciones.isDouble(txtDistance.getText()))
+            return 2;
+        if(!Validaciones.isDouble(txtIntensity.getText()))
+            return 1;
+        if(!Validaciones.isDouble(txtMirror1.getText()))
+            return 3;
+        if(!Validaciones.isDouble(txtMirror2.getText()))
+            return 4;
+        if(!Validaciones.isDouble(txtRefractive.getText()))
+            return 5;
+        return 0;
+    }
+    
+    private void quitarEspacios(){
+        txtAbsortion.setText(txtAbsortion.getText().trim());
+        txtDistance.setText(txtDistance.getText().trim());
+        txtIntensity.setText(txtIntensity.getText().trim());
+        txtMirror1.setText(txtMirror1.getText().trim());
+        txtMirror2.setText(txtMirror2.getText().trim());
+        txtRefractive.setText(txtRefractive.getText().trim());
+    }
+    
     private void txtAbsortionKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtAbsortionKeyPressed
         
     }//GEN-LAST:event_txtAbsortionKeyPressed
