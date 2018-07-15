@@ -233,8 +233,9 @@ public class Main extends javax.swing.JFrame {
 
     private boolean validar(){
         quitarEspacios();
-        if(sonNumerosValidos() != 0){
-            JOptionPane.showMessageDialog(this, "text box number 1 has data not accepted", "Error", JOptionPane.ERROR_MESSAGE);
+        int op = sonNumerosValidos();
+        if(op != 0){
+            JOptionPane.showMessageDialog(this, "text box number " + op + " has data not accepted", "Error", JOptionPane.ERROR_MESSAGE);
             return false;
         }else{
             return true;
