@@ -34,6 +34,8 @@ public class Main extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jTabbedPane1 = new javax.swing.JTabbedPane();
+        jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         txtIntensity = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
@@ -42,24 +44,41 @@ public class Main extends javax.swing.JFrame {
         txtMirror1 = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         txtMirror2 = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
         txtRefractive = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         txtAbsortion = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
         grafica = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tblResonatorModes = new javax.swing.JTable();
+        jButton1 = new javax.swing.JButton();
+        lblCoefficient = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
         jLabel7 = new javax.swing.JLabel();
         lblFinesse = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblResonatorModes = new javax.swing.JTable();
+        jLabel9 = new javax.swing.JLabel();
+        lblFrequencySpacing = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        lblIMax = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        lblpothonLifeTime = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        lblLinewidth = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(1236, 1000));
         setName("Simulador"); // NOI18N
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabel1.setText("Initial intensity");
+        jTabbedPane1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
 
-        txtIntensity.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 22)); // NOI18N
+        jLabel1.setText("Initial intensity (mW/cm^2)");
+
+        txtIntensity.setFont(new java.awt.Font("Tahoma", 0, 22)); // NOI18N
         txtIntensity.setText("1");
         txtIntensity.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -67,34 +86,34 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabel2.setText("Distance between mirrors");
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 22)); // NOI18N
+        jLabel2.setText("Distance between mirrors (cm)");
 
-        txtDistance.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        txtDistance.setFont(new java.awt.Font("Tahoma", 0, 22)); // NOI18N
         txtDistance.setText("1");
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabel3.setText("Mirror 1 reflectance");
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 22)); // NOI18N
+        jLabel3.setText("Mirror 1 reflectance (%)");
 
-        txtMirror1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        txtMirror1.setText("0.99999");
+        txtMirror1.setFont(new java.awt.Font("Tahoma", 0, 22)); // NOI18N
+        txtMirror1.setText("99.9");
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabel4.setText("Mirror 2 reflectance");
+        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 22)); // NOI18N
+        jLabel4.setText("Mirror 2 reflectance (%)");
 
-        txtMirror2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        txtMirror2.setText("0.99999");
+        txtMirror2.setFont(new java.awt.Font("Tahoma", 0, 22)); // NOI18N
+        txtMirror2.setText("99.9");
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabel5.setText("Refractive index of the medium");
-
-        txtRefractive.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        txtRefractive.setFont(new java.awt.Font("Tahoma", 0, 22)); // NOI18N
         txtRefractive.setText("1");
 
-        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabel6.setText("Absortion coefficient (as)");
+        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 22)); // NOI18N
+        jLabel5.setText("Refractive index of the medium");
 
-        txtAbsortion.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 22)); // NOI18N
+        jLabel6.setText("Absortion coefficient (cm^-1)");
+
+        txtAbsortion.setFont(new java.awt.Font("Tahoma", 0, 22)); // NOI18N
         txtAbsortion.setText("1");
         txtAbsortion.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -105,15 +124,6 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setBackground(new java.awt.Color(255, 255, 255));
-        jButton1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jButton1.setText("Calculate");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
         grafica.setBackground(new java.awt.Color(255, 255, 255));
         grafica.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
@@ -121,12 +131,33 @@ public class Main extends javax.swing.JFrame {
         grafica.setLayout(graficaLayout);
         graficaLayout.setHorizontalGroup(
             graficaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 524, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
         graficaLayout.setVerticalGroup(
             graficaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 450, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
+
+        jButton1.setBackground(new java.awt.Color(255, 204, 204));
+        jButton1.setFont(new java.awt.Font("Tahoma", 0, 22)); // NOI18N
+        jButton1.setText("Calculate");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        lblCoefficient.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblCoefficient.setText("0");
+
+        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 22)); // NOI18N
+        jLabel7.setText("Finesse");
+
+        lblFinesse.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblFinesse.setText("0");
+
+        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 22)); // NOI18N
+        jLabel8.setText("Loss coefficient");
 
         tblResonatorModes.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         tblResonatorModes.setModel(new javax.swing.table.DefaultTableModel(
@@ -139,47 +170,84 @@ public class Main extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tblResonatorModes);
 
-        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabel7.setText("Finesse");
+        jLabel9.setFont(new java.awt.Font("Tahoma", 0, 22)); // NOI18N
+        jLabel9.setText("Frequency spacing");
 
-        lblFinesse.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        lblFinesse.setText("0");
+        lblFrequencySpacing.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblFrequencySpacing.setText("0");
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+        jLabel10.setFont(new java.awt.Font("Tahoma", 0, 22)); // NOI18N
+        jLabel10.setText("Maximum intensity");
+
+        lblIMax.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblIMax.setText("0");
+
+        jLabel11.setFont(new java.awt.Font("Tahoma", 0, 22)); // NOI18N
+        jLabel11.setText("Photon lifetime");
+
+        lblpothonLifeTime.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblpothonLifeTime.setText("0");
+
+        jLabel12.setFont(new java.awt.Font("Tahoma", 0, 22)); // NOI18N
+        jLabel12.setText("Linewidth");
+
+        lblLinewidth.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblLinewidth.setText("0");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 339, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txtIntensity, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 339, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txtDistance, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 339, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txtMirror1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 339, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txtMirror2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 339, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txtRefractive, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 339, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txtAbsortion, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 339, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(txtMirror1)
+                        .addComponent(txtIntensity)
+                        .addComponent(txtDistance)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(txtRefractive)
+                        .addComponent(txtMirror2)
+                        .addComponent(txtAbsortion)
+                        .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel1)
+                                .addComponent(jLabel3)
+                                .addComponent(jLabel4)
+                                .addComponent(jLabel6))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                    .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 339, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7)
-                    .addComponent(lblFinesse))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1)
+                    .addComponent(lblFinesse)
+                    .addComponent(jLabel8)
+                    .addComponent(lblCoefficient)
+                    .addComponent(jLabel9)
+                    .addComponent(lblFrequencySpacing)
+                    .addComponent(jLabel10)
+                    .addComponent(lblIMax)
+                    .addComponent(jLabel11)
+                    .addComponent(lblpothonLifeTime)
+                    .addComponent(jLabel12)
+                    .addComponent(lblLinewidth))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 844, Short.MAX_VALUE)
                     .addComponent(grafica, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(grafica, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(17, 17, 17))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtIntensity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -197,23 +265,74 @@ public class Main extends javax.swing.JFrame {
                         .addComponent(txtMirror2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(12, 12, 12)
                         .addComponent(txtRefractive, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel6)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtAbsortion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel7)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lblFinesse)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(grafica, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jLabel8)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblCoefficient)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel9)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblFrequencySpacing)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel10)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblIMax)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel11)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblpothonLifeTime)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel12)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblLinewidth)
+                        .addGap(0, 0, Short.MAX_VALUE))))
+        );
+
+        jTabbedPane1.addTab("Resonator", jPanel1);
+
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1207, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 892, Short.MAX_VALUE)
+        );
+
+        jTabbedPane1.addTab("Laser ampliffier", jPanel2);
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jTabbedPane1)
+                .addContainerGap())
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jTabbedPane1)
                 .addContainerGap())
         );
 
@@ -227,9 +346,25 @@ public class Main extends javax.swing.JFrame {
             obj.crearTabla(tblResonatorModes);
             obj.graficar(grafica);
             lblFinesse.setText(obj.getFinesse());
+            lblCoefficient.setText(obj.getAr());
+            lblFrequencySpacing.setText(obj.getfSpacing());
+            lblIMax.setText(obj.getiMax());
+            lblpothonLifeTime.setText(obj.getPhotonLifeTime());
         }
         
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void txtAbsortionKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtAbsortionKeyReleased
+
+    }//GEN-LAST:event_txtAbsortionKeyReleased
+
+    private void txtAbsortionKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtAbsortionKeyPressed
+
+    }//GEN-LAST:event_txtAbsortionKeyPressed
+
+    private void txtIntensityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIntensityActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtIntensityActionPerformed
 
     private boolean validar(){
         quitarEspacios();
@@ -267,18 +402,6 @@ public class Main extends javax.swing.JFrame {
         txtRefractive.setText(txtRefractive.getText().trim());
     }
     
-    private void txtAbsortionKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtAbsortionKeyPressed
-        
-    }//GEN-LAST:event_txtAbsortionKeyPressed
-
-    private void txtAbsortionKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtAbsortionKeyReleased
-        
-    }//GEN-LAST:event_txtAbsortionKeyReleased
-
-    private void txtIntensityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIntensityActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtIntensityActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -318,14 +441,28 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JPanel grafica;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JLabel lblCoefficient;
     private javax.swing.JLabel lblFinesse;
+    private javax.swing.JLabel lblFrequencySpacing;
+    private javax.swing.JLabel lblIMax;
+    private javax.swing.JLabel lblLinewidth;
+    private javax.swing.JLabel lblpothonLifeTime;
     private javax.swing.JTable tblResonatorModes;
     private javax.swing.JTextField txtAbsortion;
     private javax.swing.JTextField txtDistance;

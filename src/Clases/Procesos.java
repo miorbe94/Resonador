@@ -1,6 +1,7 @@
 
 package Clases;
 
+import java.text.DecimalFormat;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTable;
@@ -15,6 +16,8 @@ import org.jfree.data.xy.XYSeriesCollection;
 
 public class Procesos {
         
+    private final double LIGHT_SPEED = 30000000000d;
+    
     private double initIntensity;
     private double distance;
     private double mirror1;
@@ -45,11 +48,10 @@ public class Procesos {
     public Procesos(double intensity, double distance, double mirror1, double mirror2, double refractive, double coefficient) {
         this.initIntensity = intensity;
         this.distance = distance;
-        this.mirror1 = mirror1;
-        this.mirror2 = mirror2;
+        this.mirror1 = mirror1 / 100;
+        this.mirror2 = mirror2 / 100;
         this.refractive = refractive;
         this.coefficient = coefficient;
-        
         resonador();
     }
     
@@ -64,7 +66,7 @@ public class Procesos {
         iMax = initIntensity / Math.pow((1 - roundTripAt), 2);
         
 //        Frequency spacing of adjacentresonator modes
-        fSpacing = (300000000 / refractive) / (2 * distance);
+        fSpacing = (LIGHT_SPEED / refractive) / (2 * distance);
         
 //        minumum intensity
         iMin = iMax / (1 + Math.pow((2 * finesse / Math.PI), 2));
@@ -73,7 +75,7 @@ public class Procesos {
         ar = coefficient + (1 / 2 * distance) * Math.log(1 / mirror1 * mirror2);
         
 //        Photon lifetime
-        photonLife = 1 / (300000000 * ar);
+        photonLife = 1 / (LIGHT_SPEED * ar);
         
 //        t = t1 * t2        
         amplitudeTransmittance = (1 - mirror1) * (1 - mirror2);
@@ -87,7 +89,7 @@ public class Procesos {
         for (int i = 0; i < 20; i++) {
             resonatorModes[i][0] = (i + 1) + ""; // mode number
             resonatorModes[i][1] = (Double.parseDouble(resonatorModes[i][0]) * fSpacing) + ""; //resonance frecuency
-            resonatorModes[i][2] = (2 * Math.PI * Double.parseDouble(resonatorModes[i][1]) * photonLife) + "";
+            resonatorModes[i][2] = (round((2 * Math.PI * Double.parseDouble(resonatorModes[i][1]) * photonLife))) + "";
         }
         
         intensityTransmitanceFrequencyTable[0][0] = fSpacing / 5; //frequency
@@ -112,18 +114,44 @@ public class Procesos {
         XYSeriesCollection data = new XYSeriesCollection();
         XYSeries series = new XYSeries("Internal Intensity");
         for (int i = 0; i < intensityTransmitanceFrequencyTable.length; i++) {
-            series.add(intensityTransmitanceFrequencyTable[i][0], intensityTransmitanceFrequencyTable[i][1]);
+            series.add(intensityTransmitanceFrequencyTable[i][0]/1000000000, intensityTransmitanceFrequencyTable[i][1]);
         }
         data.addSeries(series);
-        JFreeChart chart = ChartFactory.createXYLineChart("Resonance", "Frecuency", "Intensity", data , PlotOrientation.VERTICAL, true, true, false);
+        JFreeChart chart = ChartFactory.createXYLineChart("Resonance", "Frecuency (GHz)", "Intensity (mW/cm^2)", data , PlotOrientation.VERTICAL, true, true, false);
         ChartPanel cp = new ChartPanel(chart);
         grafica.setLayout(new java.awt.BorderLayout());
         grafica.add(cp);
     } 
 
     public String getFinesse() {
-        return finesse+"";
+        return round(finesse)+"";
     }
+
+    public String getAr() {
+        return ar + " cm^-1";
+    }
+
+    public String getfSpacing() {
+        return round((fSpacing / 1000000000))+" GHz";
+    }
+
+    public String getiMax() {
+        return round(iMax)+" mW/cm^2";
+    }    
+    
+    public String getPhotonLifeTime(){
+        return photonLife + " ps";
+    }
+    
+    private double round(double x){
+        double temp = x * 100d;
+        temp = Math.round(temp);
+        temp = temp / 100d;
+        return temp;
+    }
+
+    
+    
     
     
 }
