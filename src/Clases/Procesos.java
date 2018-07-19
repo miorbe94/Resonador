@@ -29,6 +29,7 @@ public class Procesos {
     private double amplitudeReflectance;
     private double transmitanceFinesse;
     private double maxTransmittance;
+    private double lineWidth;   
     
     private double roundTripAt;
     private double finesse;
@@ -80,6 +81,8 @@ public class Procesos {
 //        t = t1 * t2        
         amplitudeTransmittance = (1 - mirror1) * (1 - mirror2);
         
+        lineWidth = (fSpacing / 1000000000) / finesse;
+        
         amplitudeReflectance = mirror1 * mirror2;
         
         transmitanceFinesse = Math.PI * Math.sqrt(amplitudeReflectance) / (1 - amplitudeReflectance);
@@ -88,8 +91,8 @@ public class Procesos {
         
         for (int i = 0; i < 20; i++) {
             resonatorModes[i][0] = (i + 1) + ""; // mode number
-            resonatorModes[i][1] = (Double.parseDouble(resonatorModes[i][0]) * fSpacing) + ""; //resonance frecuency
-            resonatorModes[i][2] = (round((2 * Math.PI * Double.parseDouble(resonatorModes[i][1]) * photonLife))) + "";
+            resonatorModes[i][1] = (Double.parseDouble(resonatorModes[i][0]) * fSpacing / 1000000000) + ""; //resonance frecuency
+            resonatorModes[i][2] = (round((2 * Math.PI * Double.parseDouble(resonatorModes[i][1])  * 1000000000 * photonLife))) + "";
         }
         
         intensityTransmitanceFrequencyTable[0][0] = fSpacing / 5; //frequency
@@ -105,7 +108,7 @@ public class Procesos {
     }
     
     public void crearTabla(JTable tabla){        
-        javax.swing.table.DefaultTableModel model = new DefaultTableModel(resonatorModes, new String[]{"Mode Number", "Resonance Frecuency", "Q Factor"});
+        javax.swing.table.DefaultTableModel model = new DefaultTableModel(resonatorModes, new String[]{"Mode Number (q)", "Resonance Frecuency (GHz)", "Q Factor"});
         tabla.setModel(model);
     }
     
@@ -142,6 +145,11 @@ public class Procesos {
     public String getPhotonLifeTime(){
         return photonLife + " ps";
     }
+
+    public String getLineWidth() {
+        return round(lineWidth) + " GHz";
+    }    
+    
     
     private double round(double x){
         double temp = x * 100d;
